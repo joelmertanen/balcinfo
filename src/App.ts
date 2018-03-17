@@ -2,6 +2,10 @@ import getMeasurements from './Measure';
 import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
 
+process.on('SIGTERM', function () {
+    ledPrinter.clear();
+});
+
 const howOften = 1000 * 10; // 10s
 
 const keepWorking = () => {
@@ -9,7 +13,7 @@ const keepWorking = () => {
     getMeasurements()
         .then(measurements => {
             consolePrinter(measurements);
-            return ledPrinter(measurements);
+            return ledPrinter.print(measurements);
         })
         .then(getTemperature)
         .catch((e: string) => console.error(`error: ${e}`));

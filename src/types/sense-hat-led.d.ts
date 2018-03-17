@@ -5,7 +5,9 @@ declare type LedScreen = Array<RGB>[64];
 declare type WhenDone = (err: string, data: any) => void;
 
 declare interface SenseHatLed {
-    clear: (rgb: RGB) => void,
+    sync: {
+        clear: (rgb?: RGB) => void,
+    },
     flipH: (redraw: boolean) => LedScreen,
     flipV: (redraw: boolean) => LedScreen,
     getPixel: (X: number, Y: number) => RGB,
