@@ -1,13 +1,13 @@
 const nodeImu = require('nodeimu');
 const IMU: NodeImu = new nodeImu.IMU();
 
-const readTemperature: () => Promise<string> = () => {
+const getMeasurements: () => Promise<ReadingData> = () => {
     return new Promise((resolve, reject) => {
         const gotValue = (error: string, data: ReadingData) => {
             if (error || !data.temperature) {
                 reject(error);
             } else {
-                resolve(data.temperature.toFixed(2));
+                resolve(data);
             }
         }
 
@@ -16,4 +16,4 @@ const readTemperature: () => Promise<string> = () => {
     
 }
 
-export default readTemperature;
+export default getMeasurements;

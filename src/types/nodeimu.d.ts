@@ -1,5 +1,6 @@
 declare interface ReadingData {
     temperature: number;
+    humidity: number;
 }
 
 declare class NodeImu {
