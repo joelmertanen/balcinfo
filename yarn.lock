@@ -29,6 +29,10 @@ ansi@^0.3.0, ansi@~0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/ansi/-/ansi-0.3.1.tgz#0c42d4fb17160d5a9af1e484bace1c66922c1b21"
 
+any-promise@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/any-promise/-/any-promise-0.1.0.tgz#830b680aa7e56f33451d4b049f3bd8044498ee27"
+
 are-we-there-yet@~1.0.0:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/are-we-there-yet/-/are-we-there-yet-1.0.6.tgz#a2d28c93102aa6cc96245a26cb954de06ec53f0c"
@@ -243,6 +247,12 @@ form-data@~2.3.1:
     combined-stream "1.0.6"
     mime-types "^2.1.12"
 
+fs-promise@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/fs-promise/-/fs-promise-0.3.1.tgz#bf34050368f24d6dc9dfc6688ab5cead8f86842a"
+  dependencies:
+    any-promise "~0.1.0"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -272,16 +282,13 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-"glob@3 || 4":
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-4.5.3.tgz#c6cb73d3226c1efef04de3c56d012f03377ee15f"
+glob-promise@^1.0.4:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/glob-promise/-/glob-promise-1.0.6.tgz#480591d5109e4805e277ee4948444d36532028f3"
   dependencies:
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^2.0.1"
-    once "^1.3.0"
+    glob "*"
 
-glob@^7.0.5:
+glob@*, glob@^7.0.5:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -291,6 +298,15 @@ glob@^7.0.5:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+"glob@3 || 4":
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-4.5.3.tgz#c6cb73d3226c1efef04de3c56d012f03377ee15f"
+  dependencies:
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^2.0.1"
+    once "^1.3.0"
 
 graceful-fs@^4.1.2:
   version "4.1.11"
@@ -611,6 +627,14 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
+sense-hat-matrix@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/sense-hat-matrix/-/sense-hat-matrix-0.2.0.tgz#1bdc9724f710b1c76672a7d42375262ee468a0f0"
+  dependencies:
+    fs-promise "^0.3.1"
+    glob-promise "^1.0.4"
+    streamjs "^1.6.4"
+
 sigmund@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sigmund/-/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
@@ -644,6 +668,10 @@ sshpk@^1.7.0:
     ecc-jsbn "~0.1.1"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
+
+streamjs@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/streamjs/-/streamjs-1.6.4.tgz#7a18d745604351c9987d7a4d90f68d2fe117d065"
 
 string_decoder@~1.0.3:
   version "1.0.3"

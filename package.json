@@ -2,6 +2,7 @@
   "dependencies": {
     "@types/node": "^9.4.7",
     "nodeimu": "^2.1.9",
+    "sense-hat-matrix": "^0.2.0",
     "typescript": "^2.7.2"
   },
   "scripts": {
