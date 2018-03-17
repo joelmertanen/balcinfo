@@ -3,7 +3,9 @@ const humidityFormatter = (hum: number) => `${hum.toFixed(2)}%`
 
 const consolePrinter = (data: ReadingData) => {
     const str =
-`Temperature: ${temperatureFormatter(data.temperature)}
+`***************
+${new Date()}
+Temperature: ${temperatureFormatter(data.temperature)}
 Humidity: ${humidityFormatter(data.humidity)}`;
     console.log(str)
 }
