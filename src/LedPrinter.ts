@@ -1,6 +1,7 @@
+import { temperatureFormatter } from './formatters';
 const senseLed: SenseHatLed = require('sense-hat-led');
 
-const print = (text: string) => {
+const ledPrinter = (data: ReadingData): Promise<string> => {
     const textColor: RGB = [250, 142, 142];
     const bgColor: RGB = [199, 228, 210];
 
@@ -13,8 +14,8 @@ const print = (text: string) => {
                 reject(err);
             }
         }
-        senseLed.showMessage(text, 0.1, bgColor, textColor, cb);
+        senseLed.showMessage(temperatureFormatter(data.temperature), 0.1, bgColor, textColor, cb);
     })
 };
 
-export default print;
+export default ledPrinter;

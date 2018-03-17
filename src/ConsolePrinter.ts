@@ -1,5 +1,4 @@
-const temperatureFormatter = (deg: number) => `${deg.toFixed(2)}°C`
-const humidityFormatter = (hum: number) => `${hum.toFixed(2)}%`
+import {temperatureFormatter, humidityFormatter} from './formatters';
 
 const consolePrinter = (data: ReadingData) => {
     const str =

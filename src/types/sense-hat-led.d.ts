@@ -1,4 +1,4 @@
-declare type RGB = Array<number>[3];
+declare type RGB = Array<number>;
 
 declare type FrameBuffer = {};
 declare type LedScreen = Array<RGB>[64];
