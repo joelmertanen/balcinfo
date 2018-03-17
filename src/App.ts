@@ -1,24 +1,16 @@
 import getMeasurements from './Measure';
+import consolePrinter from './ConsolePrinter';
+
 const howOften = 1000 * 10; // 10s
 
-const printTemperature = () => {
-    const temperatureFormatter = (deg: number) => `${deg.toFixed(4)}°C`
-    const humidityFormatter = (hum: number) => `${hum.toFixed(4)}%`
-
+const keepWorking = () => {
     // Node.JS is still missing native Promise.prototype.finally
     getMeasurements()
-        .then(data => {
-            const str = `Temperature: ${temperatureFormatter(data.temperature)}
-            Humidity: ${humidityFormatter(data.humidity)}`;
-            console.log(str)
-        })
+        .then(consolePrinter)
         .then(getTemperature)
         .catch(e => console.error(`error: ${e}`));
 }
 
-const getTemperature = () =>
-    setTimeout(() => {
-        printTemperature();
-    }, howOften);
+const getTemperature = () => setTimeout(keepWorking, howOften);
 
-printTemperature();
+keepWorking();
