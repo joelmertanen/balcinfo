@@ -14,8 +14,7 @@ const keepWorking = () => {
     getMeasurements()
         .then(measurements => {
             consolePrinter(measurements);
-            return sendResults(measurements);
-            //return ledPrinter.print(measurements);
+            return Promise.all([sendResults(measurements), ledPrinter.print(measurements)]);
         })
         .then(getTemperature)
         .catch((e: string) => console.error(`error: ${e}`));

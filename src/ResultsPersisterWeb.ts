@@ -10,7 +10,6 @@ const options = {
     json: true
 };
 
-
 const sendResults = (results: ReadingData) => {
     const payload = {
         timestamp: (new Date()).toJSON(),

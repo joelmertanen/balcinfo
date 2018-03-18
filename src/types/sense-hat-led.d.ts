@@ -1,12 +1,12 @@
 import { ScreenOrientation } from './enums';
 
-declare type RGB = Array<number>;
+export type RGB = Array<number>;
 
-declare type FrameBuffer = {};
-declare type LedScreen = Array<RGB>[64];
-declare type WhenDone = (err: string, data: any) => void;
+export type FrameBuffer = {};
+export type LedScreen = Array<RGB>[64];
+export type WhenDone = (err: string, data: any) => void;
 
-declare interface SenseHatLed {
+export interface SenseHatLed {
     sync: {
         clear: (rgb?: RGB) => void,
         setRotation: (degrees: ScreenOrientation, redraw: boolean) => void
