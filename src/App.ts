@@ -7,7 +7,7 @@ process.on('exit', function () {
     ledPrinter.clear();
 });
 
-const howOften = 1000 * 10; // 10s
+const howOften = 1000 * 60; // 1min
 
 const keepWorking = () => {
     // Node.JS is still missing native Promise.prototype.finally
