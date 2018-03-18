@@ -1,3 +1,5 @@
+import { ScreenOrientation } from './enums';
+
 declare type RGB = Array<number>;
 
 declare type FrameBuffer = {};
