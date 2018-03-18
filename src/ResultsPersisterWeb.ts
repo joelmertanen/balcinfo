@@ -13,8 +13,8 @@ const options = {
 const sendResults = (results: ReadingData) => {
     const payload = {
         timestamp: (new Date()).toJSON(),
-        temperature: results.temperature.toString(),
-        humidity: results.humidity.toString()
+        temperature: results.temperature.toFixed(2).toString(),
+        humidity: results.humidity.toFixed(2).toString()
     };
 
     const request = Object.assign({}, options, {body: payload});
