@@ -13,7 +13,6 @@ const getMeasurements: () => Promise<ReadingData> = () => {
 
         IMU.getValue(gotValue);
     });
-    
 }
 
 export default getMeasurements;

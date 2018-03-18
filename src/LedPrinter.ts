@@ -1,5 +1,7 @@
-import { temperatureFormatter } from './formatters';
 const senseLed: SenseHatLed = require('sense-hat-led');
+
+import { temperatureFormatter } from './formatters';
+import getScreenOrientation from './ledPrinterUtils';
 
 const print = (data: ReadingData): Promise<string> => {
     const textColor: RGB = [250, 250, 250];
@@ -14,6 +16,10 @@ const print = (data: ReadingData): Promise<string> => {
                 reject(err);
             }
         }
+
+        const orientation = getScreenOrientation(data.fusionPose);
+        senseLed.sync.setRotation(orientation, false);
+
         senseLed.showMessage(temperatureFormatter(data.temperature), 0.1, bgColor, textColor, cb);
     })
 };
