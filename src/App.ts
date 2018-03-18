@@ -1,8 +1,9 @@
 import getMeasurements from './Measure';
 import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
+import sendResults from './ResultsPersisterWeb';
 
-process.on('SIGTERM', function () {
+process.on('exit', function () {
     ledPrinter.clear();
 });
 
@@ -13,7 +14,8 @@ const keepWorking = () => {
     getMeasurements()
         .then(measurements => {
             consolePrinter(measurements);
-            return ledPrinter.print(measurements);
+            return sendResults(measurements);
+            //return ledPrinter.print(measurements);
         })
         .then(getTemperature)
         .catch((e: string) => console.error(`error: ${e}`));
