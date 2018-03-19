@@ -15,6 +15,7 @@ async function getResults(): Promise<Array<PersistedResult>> {
     let results: Array<string> = [];
     let result;
     while (result = await lpop(config.queueName)) {
+        console.log('found result: ', result);
         results.push(result);
     }
     return results.map(result => JSON.parse(result));
