@@ -19,7 +19,7 @@
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "measure": "node dist/Measure",
-    "persist": "node dist/Persister",
+    "persist": "node dist/Persist",
     "test": "jest --forceExit --coverage --verbose"
   },
   "devDependencies": {

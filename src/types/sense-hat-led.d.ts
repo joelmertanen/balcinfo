@@ -2,7 +2,6 @@ import { ScreenOrientation } from './enums';
 
 export type RGB = Array<number>;
 
-export type FrameBuffer = {};
 export type LedScreen = Array<RGB>[64];
 export type WhenDone = (err: string, data: any) => void;
 
