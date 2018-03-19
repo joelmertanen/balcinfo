@@ -1,4 +1,5 @@
 declare interface ReadingData {
+    timestamp?: string; // does not come from NodeImu
     temperature: number;
     humidity: number;
     fusionPose: {

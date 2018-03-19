@@ -2,6 +2,7 @@
   "dependencies": {
     "@types/jest": "^22.2.0",
     "@types/node": "^9.4.7",
+    "@types/redis": "^2.8.6",
     "@types/request-promise": "^4.1.41",
     "chai": "^4.1.2",
     "jest": "^22.4.2",

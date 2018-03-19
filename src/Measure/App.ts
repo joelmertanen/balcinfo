@@ -1,7 +1,7 @@
-import getMeasurements from './Measure';
+import getMeasurement from './Measure';
 import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
-import sendResults from './ResultsPersisterWeb';
+import { persistReadingData } from '../RedisPersister';
 import config from '../../config.json';
 
 process.on('exit', function () {
@@ -12,13 +12,13 @@ const howOften = 1000 * 60; // 1min
 
 const keepWorking = () => {
     // Node.JS is still missing native Promise.prototype.finally
-    getMeasurements()
-        .then(measurements => {
-            consolePrinter(measurements);
-            if (config.noLed) {
-                return sendResults(measurements);
+    getMeasurement()
+        .then(measurement => {
+            consolePrinter(measurement);
+            if (config.ledEnabled) {
+                return Promise.all([persistReadingData(measurement), ledPrinter.print(measurement)]);
             } else {
-                return Promise.all([sendResults(measurements), ledPrinter.print(measurements)]);
+                persistReadingData(measurement);
             }
         })
         .then(getTemperature)
