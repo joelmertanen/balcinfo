@@ -3,7 +3,6 @@ import getMeasurement from './Measure';
 import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
 import { persistReadingData } from '../RedisPersister';
-import config from '../../config.json';
 import commandLineArgs from 'command-line-args';
 
 const cmdLineOptionDefinitions = [
@@ -17,12 +16,10 @@ process.on('exit', function () {
     ledPrinter.clear();
 });
 
-const howOften = 1000 * 60; // 1min
-
-const keepWorking = () => {
+const storeMeasurement = () => {
     const measure = cmdLineOptions.fakeMeasure ? getFakeMeasurement : getMeasurement;
-    // Node.JS is still missing native Promise.prototype.finally
-    measure()
+
+    return measure()
         .then(measurement => {
             consolePrinter(measurement);
             if (cmdLineOptions.enableLed) {
@@ -31,10 +28,10 @@ const keepWorking = () => {
                 persistReadingData(measurement);
             }
         })
-        .then(getTemperature)
-        .catch((e: string) => console.error(`error: ${e}`));
+        .catch((e: string) => {
+            console.error(`error: ${e}`)
+            process.exit(1);
+        });
 }
 
-const getTemperature = () => setTimeout(keepWorking, howOften);
-
-keepWorking();
+storeMeasurement();
