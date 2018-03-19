@@ -13,7 +13,7 @@ The project consist of two components, `Measure` and `Persist`.
 
 ## Measure
 
-`Measure` gets the measurements from Raspberry Pi's Sense Hat with the help of (nodeimu)[https://github.com/rupnikj/nodeimu]. The values are stored to a local Redis to cope with connection issues. `Measure` adds a timestamp to the results.
+`Measure` gets the measurements from Raspberry Pi's Sense Hat with the help of [nodeimu](https://github.com/rupnikj/nodeimu). The values are stored to a local Redis to cope with connection issues. `Measure` adds a timestamp to the results.
 
 The readings are stored in the following format:
 ```
