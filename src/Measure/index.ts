@@ -2,7 +2,7 @@ import getFakeMeasurement from './MockMeasure';
 import getMeasurement from './Measure';
 import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
-import { persistReadingData } from '../RedisPersister';
+import { closeConnection, persistReadingData } from '../RedisPersister';
 import commandLineArgs from 'command-line-args';
 
 const cmdLineOptionDefinitions = [
@@ -34,4 +34,5 @@ const storeMeasurement = () => {
         });
 }
 
-storeMeasurement();
+storeMeasurement()
+    .then(() => closeConnection());
