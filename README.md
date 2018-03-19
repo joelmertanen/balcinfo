@@ -30,7 +30,7 @@ values instead of sensors to help with developing.
 ## Persist
 
 `Persist` pops the (already persisted ;) values from Redis and pushes them to your favorite internet store.
-The storage is configured in root level's `config.json`.
+The storage is configured in root level's `config.json`. See `config.sample.json`.
 
 ## Running
 
