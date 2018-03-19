@@ -36,4 +36,8 @@ async function persistResults(results: Array<PersistedResult>) {
     })
 }
 
-export { getResults, persistReadingData, persistResults, PersistedResult };
+const closeConnection = () => {
+    client.quit();
+};
+
+export { closeConnection, getResults, persistReadingData, persistResults, PersistedResult };

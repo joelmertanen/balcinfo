@@ -1,4 +1,4 @@
-import { getResults, persistResults } from '../RedisPersister';
+import { closeConnection, getResults, persistResults } from '../RedisPersister';
 import sendResults from './ResultsPersisterWeb';
 
 async function persist() {
@@ -17,6 +17,7 @@ async function persist() {
         // However, I'm storing temperature data which has a timestamp, so whatever :)
         await persistResults(results);
     }
+    closeConnection();
 }
 
 persist();
