@@ -1,6 +1,7 @@
 # Balcony information
 
-A (long) weekend evening's project to see how Raspberry Pi's Sense Hat and Typescript will work together.
+A (long) weekend evening's project to see how Raspberry Pi's Sense Hat and Typescript will work when glued with Node JS.
+Also, I chose a trendy serverless endpoint for webstorage.
 
 The project consist of two components, `Measure` and `Persist`.
 
