@@ -2,7 +2,7 @@ import getMeasurements from './Measure';
 import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
 import sendResults from './ResultsPersisterWeb';
-import config from '../config.json';
+import config from '../../config.json';
 
 process.on('exit', function () {
     ledPrinter.clear();

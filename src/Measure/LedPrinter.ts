@@ -1,4 +1,4 @@
-import { SenseHatLed, RGB, WhenDone } from './types/sense-hat-led';
+import { SenseHatLed, RGB, WhenDone } from '../types/sense-hat-led';
 import { temperatureFormatter } from './formatters';
 import getScreenOrientation from './ledPrinterUtils';
 const senseLed: SenseHatLed = require('sense-hat-led');

@@ -1,5 +1,5 @@
 import rp from 'request-promise';
-import config from '../config.json';
+import config from '../../config.json';
 
 const options = {
     uri: config.uri,

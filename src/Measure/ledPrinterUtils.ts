@@ -1,4 +1,4 @@
-import { ScreenOrientation } from './types/enums';
+import { ScreenOrientation } from '../types/enums';
 
 const getScreenOrientation = (orientation: {
     x: number, y: number, z: number
