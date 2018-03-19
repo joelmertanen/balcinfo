@@ -1,4 +1,4 @@
-import config from '../../config.json';
+import config from '../config.json';
 const { promisify } = require('util');
 const redis = require('redis');
 const client = redis.createClient();
