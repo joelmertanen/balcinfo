@@ -23,12 +23,17 @@ interface PersistedResult {
 };
 ```
 
+Appending the (unorthodoxically named) command line parameter `--fakeMeasure` for `Measure` forces it to use the hardcoded measurement
+values instead of sensors to help with developing.
+
 ## Persist
 
 `Persist` pops the (already persisted ;) values from Redis and pushes them to your favorite internet store.
 The storage is configured in root level's `config.json`.
 
 ## Running
+
+Compile the Typescript with `yarn tsc`.
 
 Either run manually or then add the following to the crontab with `crontab -e`.
 ```

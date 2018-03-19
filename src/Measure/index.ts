@@ -16,23 +16,22 @@ process.on('exit', function () {
     ledPrinter.clear();
 });
 
-const storeMeasurement = () => {
+const storeMeasurement = async () => {
     const measure = cmdLineOptions.fakeMeasure ? getFakeMeasurement : getMeasurement;
 
-    return measure()
-        .then(measurement => {
-            consolePrinter(measurement);
-            if (cmdLineOptions.enableLed) {
-                return Promise.all([persistReadingData(measurement), ledPrinter.print(measurement)]);
-            } else {
-                persistReadingData(measurement);
-            }
-        })
-        .catch((e: string) => {
-            console.error(`error: ${e}`)
-            process.exit(1);
-        });
+    try {
+        const measurement = await measure();
+        consolePrinter(measurement);
+        if (cmdLineOptions.enableLed) {
+            return Promise.all([persistReadingData(measurement), ledPrinter.print(measurement)]);
+        } else {
+            persistReadingData(measurement);
+        }
+    } catch (e) {
+        console.error(`error: ${e}`)
+        process.exit(1);
+    }
+    closeConnection();
 }
 
-storeMeasurement()
-    .then(() => closeConnection());
+storeMeasurement();
