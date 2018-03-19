@@ -2,8 +2,8 @@ import config from '../config.json';
 const { promisify } = require('util');
 const redis = require('redis');
 const client = redis.createClient();
-const lPush = promisify(client.lpush).bind(client);
-const lRange = promisify(client.lrange).bind(client);
+const lpush = promisify(client.lpush).bind(client);
+const lpop = promisify(client.lpop).bind(client);
 
 interface PersistedResult {
     timestamp: string;
@@ -12,7 +12,11 @@ interface PersistedResult {
 };
 
 async function getResults(): Promise<Array<PersistedResult>> {
-    const results: Array<string> = await lRange(config.queueName, 0, -1);
+    let results: Array<string> = [];
+    let result;
+    while (result = await lpop(config.queueName)) {
+        results.push(result);
+    }
     return results.map(result => JSON.parse(result));
 };
 
@@ -22,12 +26,12 @@ async function persistReadingData(result: ReadingData) {
         temperature: result.temperature.toFixed(2),
         humidity: result.humidity.toFixed(2)
     };
-    await lPush(config.queueName, JSON.stringify(data));
+    await lpush(config.queueName, JSON.stringify(data));
 };
 
 async function persistResults(results: Array<PersistedResult>) {
     results.forEach(async result => {
-        await lPush(config.queueName, JSON.stringify(result));
+        await lpush(config.queueName, JSON.stringify(result));
     })
 }
 
