@@ -1,9 +1,9 @@
 import { SenseHatLed, RGB, WhenDone } from '../types/sense-hat-led';
 import { temperatureFormatter } from './formatters';
 import getScreenOrientation from './ledPrinterUtils';
-const senseLed: SenseHatLed = require('sense-hat-led');
 
 const print = (data: ReadingData): Promise<string> => {
+    const senseLed: SenseHatLed = require('sense-hat-led');
     const textColor: RGB = [250, 250, 250];
     const bgColor: RGB = [20, 20, 20];
 
@@ -24,6 +24,9 @@ const print = (data: ReadingData): Promise<string> => {
     })
 };
 
-const clear = () => senseLed.sync.clear();
+const clear = () => {
+    const senseLed: SenseHatLed = require('sense-hat-led');
+    senseLed.sync.clear()
+};
 
 export default { print, clear };

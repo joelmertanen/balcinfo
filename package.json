@@ -1,10 +1,12 @@
 {
   "dependencies": {
+    "@types/command-line-args": "^4.0.2",
     "@types/jest": "^22.2.0",
     "@types/node": "^9.4.7",
     "@types/redis": "^2.8.6",
     "@types/request-promise": "^4.1.41",
     "chai": "^4.1.2",
+    "command-line-args": "^5.0.2",
     "jest": "^22.4.2",
     "nodeimu": "^2.1.9",
     "redis": "^2.8.0",

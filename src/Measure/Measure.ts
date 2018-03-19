@@ -1,7 +1,7 @@
-const nodeImu = require('nodeimu');
-const IMU: NodeImu = new nodeImu.IMU();
-
 const getMeasurement: () => Promise<ReadingData> = () => {
+    const nodeImu = require('nodeimu');
+    const IMU: NodeImu = new nodeImu.IMU();
+
     return new Promise((resolve, reject) => {
         const gotValue = (error: string, data: ReadingData) => {
             if (error || !data.temperature) {
