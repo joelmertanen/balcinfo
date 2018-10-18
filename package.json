@@ -21,6 +21,7 @@
     "watch-ts": "tsc -w",
     "measure": "node dist/Measure",
     "persist": "node dist/Persist",
+    "led-printer": "node dist/LedPrinter",
     "test": "jest --forceExit --coverage --verbose"
   },
   "devDependencies": {
