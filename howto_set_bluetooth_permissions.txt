@@ -1,0 +1,1 @@
+sudo setcap cap_net_raw+eip $(eval readlink -f `nodenv which node`)
