@@ -8,6 +8,7 @@
     "chai": "^4.1.2",
     "command-line-args": "^5.0.2",
     "jest": "^22.4.2",
+    "node-ruuvitag": "^4.1.0",
     "nodeimu": "^2.1.9",
     "redis": "^2.8.0",
     "request-promise": "^4.2.2",
@@ -20,6 +21,7 @@
     "watch-ts": "tsc -w",
     "measure": "node dist/Measure",
     "persist": "node dist/Persist",
+    "led-printer": "node dist/LedPrinter",
     "test": "jest --forceExit --coverage --verbose"
   },
   "devDependencies": {
