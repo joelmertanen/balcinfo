@@ -4,34 +4,40 @@ import consolePrinter from './ConsolePrinter';
 import ledPrinter from './LedPrinter';
 import { closeConnection, persistReadingData } from '../RedisPersister';
 import commandLineArgs from 'command-line-args';
+import { findTag, getRuuviResult } from './Ruuvitag';
 
 const cmdLineOptionDefinitions = [
-    { name: 'fakeMeasure', type: Boolean },
-    { name: 'enableLed', type: Boolean }
+  { name: 'fakeMeasure', type: Boolean },
+  { name: 'enableLed', type: Boolean },
+  { name: 'noRuuvi', type: Boolean }
 ];
 
 const cmdLineOptions = commandLineArgs(cmdLineOptionDefinitions);
 
 process.on('exit', function () {
-    ledPrinter.clear();
+  ledPrinter.clear();
 });
 
-const storeMeasurement = async () => {
-    const measure = cmdLineOptions.fakeMeasure ? getFakeMeasurement : getMeasurement;
+const getRuuviData = async () => {
+  const ruuviInstance = await findTag('fac2a9cfdb55');
+  return await getRuuviResult(ruuviInstance);
+};
 
-    try {
-        const measurement = await measure();
-        consolePrinter(measurement);
-        if (cmdLineOptions.enableLed) {
-            return Promise.all([persistReadingData(measurement), ledPrinter.print(measurement)]);
-        } else {
-            persistReadingData(measurement);
-        }
-    } catch (e) {
-        console.error(`error: ${e}`)
-        process.exit(1);
-    }
-    closeConnection();
+const storeMeasurement = async () => {
+  const measure = cmdLineOptions.noRuuvi ? getMeasurement : getRuuviData;
+
+  try {
+    const measurement = await getRuuviData();
+    consolePrinter(measurement);
+    await persistReadingData(measurement);
+  } catch (e) {
+    console.error(`error: ${e}`)
+    process.exit(1);
+  }
+  closeConnection();
+
+  process.exit(0);
 }
 
 storeMeasurement();
+
