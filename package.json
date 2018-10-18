@@ -17,8 +17,8 @@
     "typescript": "^3.1.3"
   },
   "scripts": {
-    "build-ts": "tsc",
-    "watch-ts": "tsc -w",
+    "build": "tsc",
+    "watch": "tsc -w",
     "measure": "node dist/Measure",
     "persist": "node dist/Persist",
     "led-printer": "node dist/LedPrinter",
