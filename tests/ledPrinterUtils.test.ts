@@ -1,4 +1,4 @@
-import getScreenOrientation from "../src/ledPrinterUtils";
+import getScreenOrientation from "../src/LedPrinter/ledPrinterUtils";
 import { ScreenOrientation } from '../src/types/enums';
 
 const chai = require("chai");
