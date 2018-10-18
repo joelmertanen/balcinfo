@@ -1,5 +1,7 @@
 {
-	"apiKey": "https://www.youtube.com/watch?v=RfiQYRn7fBg",
-	"uri":  "URI_TO_MY_STORAGE",
-	"queueName": "bestestQueue"
+  "apiKey": "https://www.youtube.com/watch?v=RfiQYRn7fBg",
+  "uri":  "URI_TO_MY_STORAGE",
+  "queueName": "bestestQueue",
+  "ruuviTagId": "abcdef",
+  "latestKeyName": "latestMeasurement"
 }
