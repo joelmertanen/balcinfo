@@ -30,6 +30,7 @@ gcloud kms keys create [KEY_NAME] --location global --keyring [KEYRING_NAME] --p
 - Get Google Cloud CLI tool
 - `gcloud init`
 - Set secrets to the `.env`
+- Use `npm`! Do not use `yarn`, as Google Cloud Functions won't read its lockfile.
 
 # Deployment
 
