@@ -1,0 +1,21 @@
+{
+  "name": "temperature",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "repository": "https://source.developers.google.com/p/temperature-214812/r/temperature",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/kms": "^0.2.0",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.9.4",
+    "@types/pg": "^7.4.10",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/tsc"
+  }
+}
