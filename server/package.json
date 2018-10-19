@@ -5,6 +5,7 @@
   "repository": "https://source.developers.google.com/p/temperature-214812/r/temperature",
   "private": true,
   "dependencies": {
+    "@google-cloud/kms": "^0.2.0",
     "pg": "^7.4.3"
   },
   "devDependencies": {

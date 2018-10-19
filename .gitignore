@@ -43,4 +43,5 @@ coverage
 RTIMULib.ini
 config.json
 *~
+server/build
 
