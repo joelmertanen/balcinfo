@@ -41,3 +41,4 @@ $ gcloud beta functions deploy recordTemperature --region=europe-west1 --entry-p
 ```
 
 After deployment, copy-paste the trigger URL to the client's config.
+Ensure that the service account, used by the cloud fn, has an `decrypt` access to the keyring.
