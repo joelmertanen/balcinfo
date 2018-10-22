@@ -44,4 +44,4 @@ RTIMULib.ini
 config.json
 *~
 server/build
-
+client/dist

@@ -1,4 +1,4 @@
-import config from '../config.json';
+import config from '../../config.json';
 import getFakeMeasurement from './MockMeasure';
 import getMeasurement from './Measure';
 import consolePrinter from './ConsolePrinter';
