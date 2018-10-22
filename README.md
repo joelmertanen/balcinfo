@@ -19,4 +19,8 @@ The server is a glue-y compilation of:
 
 Google App Engine node.js project to display the stored values.
 
+![Frontend](./frontend.png)
+
+Yeah the frontend needs still some work ;)
+
 
