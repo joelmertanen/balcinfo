@@ -20,7 +20,14 @@ block content
 
     const temperatures = !{JSON.stringify(temperatures)};
     const humidity = !{JSON.stringify(humidity)};
-    const options = {};
+    const options = {
+      moveable: false,
+      zoomable: false,
+      drawPoints: {
+        size: 2,
+        style: 'circle'
+      }
+    };
 
     const temperatureDataSet = new vis.DataSet(temperatures);
     new vis.Graph2d(temperatureContainer, temperatureDataSet, options);
