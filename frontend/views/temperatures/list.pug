@@ -1,0 +1,29 @@
+extends ../base.pug
+
+block content
+
+  a(href="/temperatures/", class='btn btn-success btn-sm')
+    span  Last 24h
+
+  a(href="/temperatures/week", class='btn btn-success btn-sm')
+    span  Last 7 days
+
+  h3 Temperatures for the given time frame
+  #temperature_visualization
+
+  h3 Humidities for the given time frame
+  #humidity_visualization
+
+  script.
+    const temperatureContainer = document.getElementById('temperature_visualization');
+    const humidityContainer = document.getElementById('humidity_visualization');
+
+    const temperatures = !{JSON.stringify(temperatures)};
+    const humidity = !{JSON.stringify(humidity)};
+    const options = {};
+
+    const temperatureDataSet = new vis.DataSet(temperatures);
+    new vis.Graph2d(temperatureContainer, temperatureDataSet, options);
+
+    const humidityDataSet = new vis.DataSet(humidity);
+    new vis.Graph2d(humidityContainer, humidityDataSet, options);
