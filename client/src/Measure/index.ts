@@ -14,7 +14,7 @@ const cmdLineOptionDefinitions = [
 const cmdLineOptions = commandLineArgs(cmdLineOptionDefinitions);
 
 const getRuuviData = async () => {
-  const ruuviInstance = await findTag();
+  const ruuviInstance = await findTag(config.ruuviTagId);
   return await getRuuviResult(ruuviInstance);
 };
 
@@ -22,7 +22,7 @@ const storeMeasurement = async () => {
   const measure = cmdLineOptions.noRuuvi ? getMeasurement : getRuuviData;
 
   try {
-    const measurement = await getRuuviData(config.ruuviTagId);
+    const measurement = await getRuuviData();
     consolePrinter(measurement);
     await persistReadingData(measurement);
   } catch (e) {

@@ -11,6 +11,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const config_json_1 = __importDefault(require("../config.json"));
 const Measure_1 = __importDefault(require("./Measure"));
 const ConsolePrinter_1 = __importDefault(require("./ConsolePrinter"));
 const RedisPersister_1 = require("../RedisPersister");
@@ -22,7 +23,7 @@ const cmdLineOptionDefinitions = [
 ];
 const cmdLineOptions = command_line_args_1.default(cmdLineOptionDefinitions);
 const getRuuviData = () => __awaiter(this, void 0, void 0, function* () {
-    const ruuviInstance = yield Ruuvitag_1.findTag('fac2a9cfdb55');
+    const ruuviInstance = yield Ruuvitag_1.findTag(config_json_1.default.ruuviTagId);
     return yield Ruuvitag_1.getRuuviResult(ruuviInstance);
 });
 const storeMeasurement = () => __awaiter(this, void 0, void 0, function* () {
