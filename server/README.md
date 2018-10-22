@@ -35,9 +35,9 @@ gcloud kms keys create [KEY_NAME] --location global --keyring [KEYRING_NAME] --p
 # Deployment
 
 ```bash
-$ npm run-script build
-$ ENCRYPTED_ENV=`cat .env | gcloud kms encrypt --location=global --keyring=[KEYRING_NAME] --key=[KEY_NAME] --ciphertext-file=- --plaintext-file=- | base64`
-$ gcloud beta functions deploy recordTemperature --region=europe-west1 --entry-point=recordTemperature --runtime=nodejs8 --trigger-http --set-env-vars ENCRYPTED_ENV=$ENCRYPTED_ENV,CRYPTO_KEY_PATH=projects/[GOOGLE_PROJECT_NAME]/locations/global/keyRings/[KEYRING_NAME]/cryptoKeys/[KEY_NAME]
+npm run-script build
+ENCRYPTED_ENV=`cat .env | gcloud kms encrypt --location=global --keyring=[KEYRING_NAME] --key=[KEY_NAME] --ciphertext-file=- --plaintext-file=- | base64`
+gcloud beta functions deploy recordTemperature --region=europe-west1 --entry-point=recordTemperature --runtime=nodejs8 --trigger-http --set-env-vars ENCRYPTED_ENV=$ENCRYPTED_ENV,CRYPTO_KEY_PATH=projects/[GOOGLE_PROJECT_NAME]/locations/global/keyRings/[KEYRING_NAME]/cryptoKeys/[KEY_NAME]
 ```
 
 After deployment, copy-paste the trigger URL to the client's config.
