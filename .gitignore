@@ -46,3 +46,4 @@ config.json
 server/build
 
 .vscode
+client/dist

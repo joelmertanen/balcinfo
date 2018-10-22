@@ -11,7 +11,6 @@ Now it reads data from a single RuuviTag, which works nicely.
 * RuuviTag
 * Node 9.x
 * `redis`
-* `yarn`
 
 ## Measure
 
@@ -36,7 +35,7 @@ The storage is configured in root level's `config.json`. See `config.sample.json
 
 ## Running
 
-Compile the Typescript with `yarn tsc`.
+Compile the Typescript with `npm run-script build`.
 
 Either run manually or then add the following to the crontab with `crontab -e`.
 ```
